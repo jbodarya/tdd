@@ -25,8 +25,9 @@ public class HelloWorld {
         return "hello " + helloWorldService.getValue(value);
     }
 
-    @PostMapping("/{value}")
-    public String postVal(@PathVariable("value") String value){
+    @PostMapping(path = "/{value}", consumes = "application/json", produces = "application/json")
+    public String postVal(@PathVariable("value") String value, @RequestBody Data data){
+
         return HttpStatus.OK.toString();
     }
 
